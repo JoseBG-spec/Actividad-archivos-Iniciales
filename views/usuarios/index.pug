@@ -1,0 +1,32 @@
+extends ../layout
+
+block content 
+    h1 Listado de usuarios 
+    br
+    a.btn.btn-success(href='/usuarios/create') Nuevo usuario
+    br
+    br
+    table.table 
+        thead  
+            tr 
+                th #
+                th Nombre
+                th Email
+                th Verificado
+                th
+                th
+        tbody 
+            each usuario in usuarios
+                tr
+                    td=usuario.id
+                    td=usuario.nombre
+                    td=usuario.email
+                    td=usuario.verificado ? 'SI' : 'NO'
+                    td
+                        a(href=usuario.id + '/update') Editar
+                    td 
+                        form.inline(method='post' action='/usuarios/' + usuario.id + '/delete')
+                            input(type='hidden' name='id' value= usuario.id)
+                            button.link-button.btn-danger(type='submit' name='submit_param' value='submit_value' class='btn')
+                                = 'Eliminar'
+    a(href='/') Home

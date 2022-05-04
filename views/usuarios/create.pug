@@ -1,0 +1,40 @@
+extends ../layout 
+
+block content
+    a(href='/usuarios') Volver
+    br
+    h1 Nuevo usuario 
+    form(action='/usuarios/create' method='POST')
+        table.table 
+            tr 
+                td
+                    label(for='nombre') Nombre:
+                td
+                    input#nombre(type='text' name='nombre' value= usuario.nombre class=errors.nombre ? 'is-invalid' : '')
+                    if errors.nombre
+                        small#nombreHelp.text-danger = errors.nombre.message
+            tr 
+                td
+                    label(for='email') Email:
+                td
+                    input#email(type='text' name='email' value= usuario.email class=errors.email ? 'is-invalid' : '')
+                    if errors.email
+                        small#emailHelp.text-danger = errors.email.message
+            tr 
+                td
+                    label(for='pwd') Password:
+                td
+                    input#pwd(type='password' name='password' value= usuario.email class=errors.password ? 'is-invalid' : '')
+                    if errors.password
+                        small#emailHelp.text-danger = errors.password.message
+            tr 
+                td
+                    label(for='confirm_pwd') Confirmar Password:
+                td
+                    input#confirm_pwd(type='password' name='confirm_password' class=errors.confirm_password ? 'is-invalid' : '')
+                    if errors.password
+                        small#emailHelp.text-danger = errors.password.message
+            tr
+                td 
+                td
+                    input.btn(type='submit' value='OK')

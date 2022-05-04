@@ -1,0 +1,19 @@
+extends ../layout 
+
+block content
+    a(href='/usuarios') Volver
+    br
+    h1 Actualizando usuario 
+    form(action=`/usuarios/${usuario.id}/update` method='POST')
+        table.table 
+            tr 
+                td
+                    label(for='nombre') Nombre:
+                td
+                    input#nombre(type='text' name='nombre' value= usuario.nombre class=errors.nombre ? 'us-invalid' : '')
+                    if errors.nombre
+                        small#nombreHelp.text-danger = errors.nombre.message
+            tr
+                td 
+                td
+                    input.btn(type='submit' value='OK')
