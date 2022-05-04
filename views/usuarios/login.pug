@@ -1,0 +1,22 @@
+extends ../layout
+
+block content 
+    a(href="/") Volver 
+    br
+    h1 Login 
+    form(action="/usuarios/login" method="POST")
+        table.table 
+            tr 
+                td 
+                    label(for="email") Email: 
+                td 
+                    input#email(type="email" name="email" placeholder="Email")
+            tr
+                td 
+                    label(for="password") Password: 
+                td 
+                    input#password(type="password" name="password" placeholder="Password")
+            tr 
+                td
+                td 
+                    input.btn(type="submit" value="Entrar")

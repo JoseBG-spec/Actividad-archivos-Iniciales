@@ -1,0 +1,32 @@
+extends ../layout
+
+block content 
+    a(href="/usuarios") Volver 
+    br
+    h1 Reservar Bici 
+    form(action=`/usuarios/${usuario.id}/reserva` method="POST")
+        table.table 
+            tr 
+                td 
+                    label(for="desde") Desde: 
+                td 
+                    input#desde(type="date" name="desde" placeholder="Desde")
+            tr
+                td 
+                    label(for="final") final: 
+                td 
+                    input#final(type="date" name="final" placeholder="final")
+            tr
+                td 
+                    label(for="bicicleta") Bicicleta: 
+                td 
+                    input#bicicleta(type="text" name="bicicleta" placeholder="Bicicleta (Id)" read)
+            tr
+                td 
+                    label(for="usuario") Usuario: 
+                td 
+                    input#usuario(type="text" name="usuario" placeholder="Usuario (Nombre)" value=usuario.nombre readonly)
+            tr 
+                td
+                td 
+                    input.btn(type="submit" value="Entrar")

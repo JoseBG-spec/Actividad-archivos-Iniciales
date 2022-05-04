@@ -8,17 +8,11 @@ zoomOffset: -1,
 accessToken: 'pk.eyJ1IjoibHVpc2pvc2U1IiwiYSI6ImNsMDc0dDVtMjAza3gzanM4d3J0ZnMzbzgifQ.NfkxFbGmErrf6AayBjmuXg'
 }).addTo(map);
 
-//Adding a marker
-//L.marker([19.284076,-99.1355524], title='test').addTo(map);
-console.log("a")
-//AJAX solicitud 
 $.ajax({
     dataType: 'json',
     url: 'api/bicicletas',
     success: function(res){
-        console.log(res)
         res.bicicletas.forEach(function(bici){
-            console.log(bici)
 
             /*
             GeoJSON Objects

@@ -15,6 +15,7 @@ block content
                 th Verificado
                 th
                 th
+                th
         tbody 
             each usuario in usuarios
                 tr
@@ -23,7 +24,9 @@ block content
                     td=usuario.email
                     td=usuario.verificado ? 'SI' : 'NO'
                     td
-                        a(href=usuario.id + '/update') Editar
+                        a(href='/usuarios/' + usuario.id + '/update') Editar
+                    td
+                        a(href='/usuarios/' + usuario.id + '/reserva') Reservar
                     td 
                         form.inline(method='post' action='/usuarios/' + usuario.id + '/delete')
                             input(type='hidden' name='id' value= usuario.id)

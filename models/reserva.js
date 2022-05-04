@@ -4,13 +4,13 @@ let Schema = mongoose.Schema
 
 let reservaSchema = new Schema({
     desde: Date,
-    hasta: Date,
+    final: Date,
     bicicleta: {type: mongoose.Schema.Types.ObjectId, ref: 'Bicicleta' },
     usuario: {type: mongoose.Schema.Types.ObjectId, ref: 'Usuario'},
 })
 
 reservaSchema.methods.diasDeReserva = function() {
-    return moment(this.hasta).diff(moment(this.desde), 'days') + 1
+    return moment(this.final).diff(moment(this.desde), 'days') + 20
 }
 
 module.exports = mongoose.model('Reserva', reservaSchema) 

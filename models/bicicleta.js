@@ -34,14 +34,6 @@ bicicletaSchema.statics.add = function (aBici, cb) {
 
 bicicletaSchema.statics.findByCode = function (aCode, cb) {
     return this.findOne({ code: aCode }, cb)
-    // this.findOne({code: aCode }, function (err, docs) {
-    //     if (err){
-    //         console.log(err)
-    //     }
-    //     else{
-    //         return docs
-    //     }
-    // });
 }
 
 bicicletaSchema.statics.removeByCode = function (aCode, cb) {
